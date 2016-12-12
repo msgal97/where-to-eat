@@ -5,6 +5,11 @@ var https = require('https');
 
 var AlexaSkill = require('./AlexaSkill');
 
+var WhereToEatSkill = function () {
+  AlexaSkill.call(this, APP_ID);
+
+};
+
 WhereToEatSkill.prototype = Object.create(AlexaSkill.prototype);
 WhereToEatSkill.prototype.constructor = WhereToEatSkill;
 
