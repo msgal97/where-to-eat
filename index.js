@@ -23,7 +23,7 @@ WhereToEat.prototype.eventHandlers.onLaunch = function (launchRequest, session, 
     WelcomeResponse(response);
 };
 
-WhereToEatSkill.prototype.eventHandlers.onSessionEnded = function (sessionEndedRequest, session) {
+WhereToEat.prototype.eventHandlers.onSessionEnded = function (sessionEndedRequest, session) {
     console.log("onSessionEnded requestId: " + sessionEndedRequest.requestId
         + ", sessionId: " + session.sessionId);
 };
@@ -70,6 +70,12 @@ WhereToEat.prototype.intentHandlers = {
     }
 };
 
+var PLACES = {
+  'taco bell':
+  'mcdonalds':
+  'hardees':
+};
+
 function WelcomeResponse(response) {
 
 var  cardTitle = "What Do You Want For Lunch Today";
@@ -91,7 +97,10 @@ var repromptOutput = {
 
 function handleWhereToEatRequest(intent, session, response) {
     var locSlot = intent.slots.loc;
-    var repromptText = "Are you still hungry?";
+    if (locSlot && locSlot.value){
+      handleWhereToEatRequest
+    }
+    //var repromptText = "Are you still hungry?";
 }
 function handleNextPlaceRequest(intent, session, response) {
     var locSlot = intent.slots.loc;
