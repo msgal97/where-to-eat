@@ -72,9 +72,9 @@ WhereToEatSkill.prototype.intentHandlers = {
 
 function getWelcomeResponse(response) {
 
-var  cardTitle = "What Do You Want For Lunch Today"
+var  cardTitle = "What Do You Want For Lunch Today";
 var repromptText = "Are you still hungry?";
-var speechText = "With Where To Eat, you can find a place to eat."
+var speechText = "With Where To Eat, you can find a place to eat.";
 var cardOutput = "Where To Eat. What do you want for lunch?";
 
 var speechOutput = {
@@ -92,11 +92,11 @@ var repromptOutput = {
 function handleWhereToEatRequest(intent, session, response) {
     var locSlot = intent.slots.loc;
     var repromptText = "Are you still hungry?";
-
+}
 function handleNextPlaceRequest(intent, session, response) {
     var locSlot = intent.slots.loc;
     var repromptText = "Are you still hungry?";
-
+}
 exports.handler = function (event, context) {
   var  skill = new WhereToEatSkill();
   skill.execute(event, context);
