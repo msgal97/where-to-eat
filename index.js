@@ -98,7 +98,7 @@ var repromptOutput = {
 function handleWhereToEatRequest(intent, session, response) {
     var locSlot = intent.slots.loc;
     if (locSlot && locSlot.value){
-      handleWhereToEatRequest
+      handleWhereToEatRequest(intent, session, response);
     }
     //var repromptText = "Are you still hungry?";
 }
