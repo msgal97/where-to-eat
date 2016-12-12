@@ -78,7 +78,7 @@ var speechText = "With Where To Eat, you can find a place to eat.";
 var cardOutput = "Where To Eat. What do you want for lunch?";
 
 var speechOutput = {
-  speech: "Goodbye",
+  speech: "Where to Eat. What do you want for lunch?",
   type: AlexaSkill.speechOutputType.SSML
 };
 
