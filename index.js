@@ -5,36 +5,36 @@ var https = require('https');
 
 var AlexaSkill = require('./AlexaSkill');
 
-var WhereToEat = function () {
+var WhereToEatSkill = function () {
   AlexaSkill.call(this, APP_ID);
 
 };
 
-WhereToEat.prototype = Object.create(AlexaSkill.prototype);
-WhereToEat.prototype.constructor = WhereToEat;
+WhereToEatSkill.prototype = Object.create(AlexaSkill.prototype);
+WhereToEatSkill.prototype.constructor = WhereToEatSkill;
 
-WhereToEat.prototype.eventHandlers.onSessionStarted = function (sessionStartedRequest, session) {
-    console.log("WhereToEat onSessionStarted requestId: " + sessionStartedRequest.requestId
+WhereToEatSkill.prototype.eventHandlers.onSessionStarted = function (sessionStartedRequest, session) {
+    console.log("WhereToEatSkill onSessionStarted requestId: " + sessionStartedRequest.requestId
         + ", sessionId: " + session.sessionId);
 };
 
-WhereToEat.prototype.eventHandlers.onLaunch = function (launchRequest, session, response) {
-    console.log("WhereToEat onLaunch requestId: " + launchRequest.requestId + ", sessionId: " + session.sessionId);
-    WelcomeResponse(response);
+WhereToEatSkill.prototype.eventHandlers.onLaunch = function (launchRequest, session, response) {
+    console.log("WhereToEatSkill onLaunch requestId: " + launchRequest.requestId + ", sessionId: " + session.sessionId);
+    getWelcomeResponse(response);
 };
 
-WhereToEat.prototype.eventHandlers.onSessionEnded = function (sessionEndedRequest, session) {
+WhereToEatSkill.prototype.eventHandlers.onSessionEnded = function (sessionEndedRequest, session) {
     console.log("onSessionEnded requestId: " + sessionEndedRequest.requestId
         + ", sessionId: " + session.sessionId);
 };
 
-WhereToEat.prototype.intentHandlers = {
+WhereToEatSkill.prototype.intentHandlers = {
 
-    "WhereToEatIntent": function (intent, session, response) {
+    "GetWhereToEatIntent": function (intent, session, response) {
         handleWhereToEatRequest(intent, session, response);
     },
 
-    "NextPlaceIntent": function (intent, session, response) {
+    "GetNextPlaceIntent": function (intent, session, response) {
         handleNextPlaceRequest(intent, session, response);
     },
 
@@ -70,8 +70,7 @@ WhereToEat.prototype.intentHandlers = {
     }
 };
 
-
-function WelcomeResponse(response) {
+function getWelcomeResponse(response) {
 
 var  cardTitle = "What Do You Want For Lunch Today";
 var repromptText = "Are you still hungry?";
@@ -99,6 +98,6 @@ function handleNextPlaceRequest(intent, session, response) {
     var repromptText = "Are you still hungry?";
 }
 exports.handler = function (event, context) {
-  var  skill = new WhereToEat();
+  var  skill = new WhereToEatSkill();
   skill.execute(event, context);
 };
