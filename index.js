@@ -98,6 +98,6 @@ function handleNextPlaceRequest(intent, session, response) {
     var repromptText = "Are you still hungry?";
 }
 exports.handler = function (event, context) {
-  var  skill = new WhereToEatSkill();
+  var skill = new WhereToEatSkill();
   skill.execute(event, context);
 };
