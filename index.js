@@ -70,11 +70,6 @@ WhereToEat.prototype.intentHandlers = {
     }
 };
 
-var PLACES = {
-  'taco bell':
-  'mcdonalds':
-  'hardees':
-};
 
 function WelcomeResponse(response) {
 
@@ -97,10 +92,7 @@ var repromptOutput = {
 
 function handleWhereToEatRequest(intent, session, response) {
     var locSlot = intent.slots.loc;
-    if (locSlot && locSlot.value){
-      handleWhereToEatRequest(intent, session, response);
-    }
-    //var repromptText = "Are you still hungry?";
+    var repromptText = "Are you still hungry?";
 }
 function handleNextPlaceRequest(intent, session, response) {
     var locSlot = intent.slots.loc;
